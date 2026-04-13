@@ -7,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #000000, #3a3a3a);
+  background: linear-gradient(135deg, #000000, #464646);
   color: white;
   display: flex;
   justify-content: center;
@@ -30,7 +30,7 @@ body {
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   margin-bottom: 25px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* 프로필 섹션 */
@@ -38,14 +38,37 @@ body {
   padding: 30px 20px;
 }
 
+/* 프로필 이미지 기본 스타일 */
 .profile-img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 3px solid #7ecfff;
-  box-shadow: 0 0 20px rgba(126, 207, 255, 0.3);
+  border: 3px solid #FF6B81;
+  box-shadow: 0 0 20px rgba(255, 107, 129, 0.4);
   margin-bottom: 15px;
   object-fit: cover;
+  cursor: pointer;
+  
+  /* 부드러운 전환 효과 */
+  transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+.profile-img:active {
+  transform: scale(0.93);
+  box-shadow: 0 0 30px rgba(229, 75, 100, 0.4);
+}
+
+.profile-img.shake {
+  animation: shakeImage 0.1s ease-in-out;
+}
+
+@keyframes shakeImage {
+  0% { transform: translateX(0) scale(0.93); }
+  25% { transform: translateX(-2px) scale(0.93); }
+  50% { transform: translateX(2px) scale(0.93); }
+  75% { transform: translateX(-1px) scale(0.93); }
+  100% { transform: translateX(0) scale(0.93); }
 }
 
 .name {
