@@ -6,21 +6,16 @@ const totalImages = images.length;
 let index = 1; 
 let slideInterval;
 
-// 효과음 객체 생성
 const clickSound = new Audio('sound/1.mp3');
 
-// 1. 프로필 이미지 클릭/터치 이벤트 (압력 및 흔들림 효과)
+// 1. 프로필 이미지 터치 이벤트
 profileImg.addEventListener('click', () => {
-  // 중첩 방지하며 소리 재생
   if (clickSound.paused) {
     clickSound.play();
-    
-    // 눌리는 압력 상태에서 가볍게 흔들리는 CSS 클래스 추가
     profileImg.classList.add('shake');
   }
 });
 
-// 애니메이션이 끝나면 클래스 제거 (재사용 가능하도록)
 profileImg.addEventListener('animationend', () => {
   profileImg.classList.remove('shake');
 });
